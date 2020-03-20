@@ -1,0 +1,98 @@
+<ion-header>
+    <ion-toolbar>
+        
+        <ion-title>
+            {{this.OptionalPageName != '' ? this.OptionalPageName : this.MainPageName}}
+        </ion-title>
+        <ion-buttons (click)="showHide()" class="searchIcon"></ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="loadData(true, $event)">
+        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing...">
+        </ion-refresher-content>
+    </ion-refresher>
+    <ul class="homeListItom" *ngIf="this.CategoryImageTrue == true">
+        <li *ngFor="let SubCat of SubCategories" id="{{SubCat.subcategory_id}}" class="albumList {{SubCat.type}}">
+            <div class="homeItems" *ngIf="SubCat.type == 'category'">
+                <ion-tab-button (click)="HomeSubInnFn(SubCat.subcategory_id)">
+
+                    <div *ngIf="SubCat.category_image != ''" class="HomeItemImgs" [style.background-image]="'url('+SubCat.category_image+')'"></div>
+
+                    <div *ngIf="SubCat.category_image == ''" class="HomeItemImgs" [style.background-image]="'url(./assets/images/noimage.png)'"></div>
+
+                    <!-- <div *ngIf="SubCat.category_image == ''" class="HomeItemImgs" [style.background-image]="'url(https://images.pexels.com/photos/3496542/pexels-photo-3496542.jpeg)'"></div> -->
+
+                    <h2 *ngIf="SubCat.subcategory_name != ''">{{SubCat.subcategory_name}}</h2>
+                    <p *ngIf="SubCat.subcategory_page_name != ''">{{SubCat.subcategory_page_name}}</p>
+                </ion-tab-button>
+            </div>
+
+            <div class="homeItems" *ngIf="SubCat.type == 'post'">
+                <ion-tab-button (click)="HomePostDetail(SubCat.post_id)">
+                    <div *ngIf="SubCat.featured_image != ''" class="HomeItemImgs" [style.background-image]="'url('+SubCat.featured_image+')'"></div>
+                    <div *ngIf="SubCat.featured_image == ''" class="HomeItemImgs" [style.background-image]="'url(./assets/images/noimage.png)'"></div>
+                    <h2 *ngIf="SubCat.post_title != ''">{{SubCat.post_title}}</h2>
+                    <p *ngIf="SubCat.subcategory_page_name != ''">{{SubCat.subcategory_page_name}}</p>
+                </ion-tab-button>
+            </div>
+        </li>
+    </ul>
+    <ul class="homeListItom ListSyle Link" *ngIf="this.CategoryImageTrue == false">
+        <!-- <li  class="albumList" *ngFor="let SubCat of SubCategories"  id="{{SubCat.subcategory_id}}" *ngIf="SubCat.category_image != ''">
+		  <div class="homeItems" >
+			<ion-tab-button (click)="HomeSubInnFn(SubCat.subcategory_id)">
+				  <div class="HomeItemImgs"  [style.background-image]="'url('+SubCat.category_image+')'"></div>
+				<h2>{{SubCat.subcategory_name}}</h2> 
+				<p>{{SubCat.subcategory_page_name}}</p> 
+			</ion-tab-button>
+			</div> 
+
+			*ngIf="SubCat.category_image == ''"
+		  </li> -->
+
+
+        <li *ngFor="let SubCat of SubCategories" id="{{SubCat.subcategory_id}}" class="albumList {{SubCat.type}}">
+            <div class="homeItems Category" *ngIf="SubCat.type == 'category'">
+                <ion-tab-button (click)="HomeSubInnFn(SubCat.subcategory_id)">
+                    <!-- <div class="HomeItemImgs"  *ngIf="SubCat.category_image != ''"  [style.background-image]="'url('+SubCat.category_image+')'"></div> -->
+                    <div class="flexBox">
+                        <div class="leftContHor">
+                            <h2 *ngIf="SubCat.subcategory_name != ''">{{SubCat.subcategory_name}}</h2>
+                            <p *ngIf="SubCat.subcategory_page_name != ''">{{SubCat.subcategory_page_name}}</p>
+                        </div>
+                        <div class="arrowRight">
+                            <ion-icon name="arrow-forward"></ion-icon>
+                        </div>
+                    </div>
+                </ion-tab-button>
+            </div>
+            <div class="homeItems posts" *ngIf="SubCat.type == 'post'">
+
+                <ion-tab-button *ngIf="SubCat.post_content == ''" (click)="playBtn(SubCat.post_id)">
+                    <div class="flexBox PostBox">
+                        <div class="leftContHor">
+                            <h2 *ngIf="SubCat.post_title != ''">{{SubCat.post_title}}</h2>
+                            <p *ngIf="SubCat.wps_subtitle != ''">{{SubCat.wps_subtitle}}</p>
+                        </div>
+                        <div class="arrowRight">
+                            <ion-icon name="arrow-forward"></ion-icon>
+                        </div>
+                    </div>
+                </ion-tab-button>
+
+                <ion-tab-button class="helloC" *ngIf="SubCat.post_content != ''" (click)="HomePostDetail(SubCat.post_id)">
+                    <div class="flexBox PostBox">
+                        <div class="leftContHor">
+                            <h2 *ngIf="SubCat.post_title != ''">{{SubCat.post_title}}</h2>
+                            <p *ngIf="SubCat.wps_subtitle != ''">{{SubCat.wps_subtitle}}</p>
+                        </div>
+                        <div class="arrowRight">
+                            <ion-icon name="arrow-forward"></ion-icon>
+                        </div>
+                    </div>
+                </ion-tab-button>
+            </div>
+        </li>
+    </ul>
+</ion-content>

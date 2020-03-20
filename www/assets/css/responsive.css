@@ -1,0 +1,78 @@
+.tabMenuCont ion-label {
+    font-size: 1em;
+}
+
+@media only screen and (max-width: 1023px) {
+    body {
+        font-size: 16px;
+    }
+    .tabMenuCont {
+        height: 4em;
+    }
+    .arrowRight {
+        height: 4.3em;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    body {
+        font-size: 16px;
+    }
+    .tabMenuCont {
+        height: 4em;
+        padding: 0.2em 0;
+    }
+    .tabMenuCont ion-label {
+        font-size: 1.5em;
+    }
+    .contactBtnHdr,
+    .searchIcon {
+        width: 2.5em;
+        height: 2.5em;
+    }
+    .homeListItom li {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 639px) {
+    body {
+        font-size: 9px;
+    }
+    .tabMenuCont {
+        height: 4em;
+        padding: 0.2em 0;
+    }
+    .tabMenuCont ion-label {
+        font-size: 1em;
+    }
+    ion-tab-bar,
+    ion-tab-button {
+        font-size: inherit;
+    }
+    .tabMenuCont {
+        height: 5.5em;
+        padding: 0.2em 0;
+    }
+    .homeListItom li h2 {
+        font-size: 1.8em;
+    }
+    .arrowRight {
+        height: 4em;
+    }
+    .smallTable {
+        font-size: 12px;
+    }
+    .CustomFooter ion-title {
+        font-size: 1em;
+    }
+    .CustomFooter .MenuIcon {
+        font-size: 2em;
+    }
+}
+
+@media only screen and (max-width: 379px) {
+    .smallTable {
+        font-size: 11px;
+    }
+}

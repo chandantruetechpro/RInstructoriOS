@@ -1,0 +1,7 @@
+{
+  "name": "Rinstructor",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

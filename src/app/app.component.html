@@ -1,0 +1,29 @@
+<ion-app>
+    <div class="SearchSection" id="SearchSection" *ngIf="router.url === '/home' || router.url === '/video' || router.url === '/cheatsheets' || router.url === '/whichtest'">
+        <div class="SearchBox" *ngIf="show" id="SearchBox">
+            <input type="text" id="search_input" (keyup.enter)="OnInput($event)" value="" placeholder="Search..." />
+        </div>
+
+        <ion-buttons (click)="showHide()" id="SearchComponent" class="searchIcon SearchComponent"></ion-buttons>
+    </div>
+    <ion-router-outlet>
+
+    </ion-router-outlet>
+
+    <ion-footer class="CustomFooter">
+
+        <div class="footInner">
+
+            <!-- <li *ngFor="let item of items" (click)="toggleClass(item)" [routerDirection]="'root'" routerLink="/{{item.name}}" [ngClass]="{'active': item.active}">{{ item.name }}</li> -->
+            <!-- <ion-toolbar *ngFor="let item of items"  [routerDirection]="'root'" routerLink="/{{item.name}}" (click)="toggleClass(item)" [ngClass]="{'active': item.active}">  [class.active]="first" -->
+            <ion-toolbar *ngFor="let item of items;  let first = first;" [routerDirection]="'root'" routerLink="/{{item.name}}" (click)="select(item)" id="{{item.name}}" [ngClass]="{active: isActive(item)} ">
+                <ion-title>
+                    <div class="MenuIcon Icon{{item.index}} Foot{{item.index}} "></div>
+                    <label>{{item.PageNameNew}}</label>
+                </ion-title>
+            </ion-toolbar>
+
+        </div>
+    </ion-footer>
+
+</ion-app>

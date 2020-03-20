@@ -1,0 +1,52 @@
+<ion-header>
+    <ion-buttons class="customBack" (click)="goBack();">&nbsp;</ion-buttons>
+    <ion-toolbar>
+        <ion-title>Search</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-refresher slot="fixed" (ionRefresh)="loadData(true, $event)">
+        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing...">
+        </ion-refresher-content>
+    </ion-refresher>
+    <ul class="homeListItom ListSyle Link"  *ngIf="search_result != 'No Posts'">
+        <li *ngFor="let SubCat of search_result" id="{{SubCat.post_id}}" class="albumList {{SubCat.type}}">
+
+            <div class="homeItems posts">
+
+                <ion-tab-button *ngIf="SubCat.post_content == ''" id="{{SubCat.post_id}}" (click)="playBtn(SubCat.post_id)">
+                    <div class="flexBox PostBox">
+                        <div class="leftContHor">
+                            <h2 *ngIf="SubCat.post_title != ''">{{SubCat.post_title}}</h2>
+                            <p *ngIf="SubCat.subcategory_page_name != ''">{{SubCat.subcategory_page_name}}</p>
+                        </div>
+                        <div class="arrowRight">
+                            <ion-icon name="arrow-forward"></ion-icon>
+                        </div>
+                    </div>
+                </ion-tab-button>
+
+                <ion-tab-button *ngIf="SubCat.post_content != ''" id="{{SubCat.post_id}}" (click)="HomePostDetail(SubCat.post_id)">
+                    <div class="flexBox PostBox">
+                        <div class="leftContHor">
+                            <h2 *ngIf="SubCat.post_title != ''">{{SubCat.post_title}}</h2>
+                            <p *ngIf="SubCat.subcategory_page_name != ''">{{SubCat.subcategory_page_name}}</p>
+                        </div>
+                        <div class="arrowRight">
+                            <ion-icon name="arrow-forward"></ion-icon>
+                        </div>
+                    </div>
+                </ion-tab-button>
+            </div>
+        </li>
+    </ul>
+	<div *ngIf="search_result == 'No Posts'">
+		<ul class="homeListItom ListSyle Link">
+			<li class="albumList {{SubCat.type}}">
+				<h2>No posts found. Please change search keyword.</h2>
+			</li>
+		</ul>
+	</div>
+</ion-content>

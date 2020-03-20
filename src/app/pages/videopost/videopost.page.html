@@ -1,0 +1,54 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons class="customBack" (click)="goBack(postId,type_sent);">&nbsp;</ion-buttons>
+        <!-- <ion-title>videopost</ion-title> -->
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="AppVideoPage">
+    <ion-refresher slot="fixed" (ionRefresh)="loadData(true, $event)">
+        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing...">
+        </ion-refresher-content>
+    </ion-refresher>
+    <video style="width: 100%; height: 100%;" *ngIf="this.videoPoster == '' && this.external_url == 'No'" preload="metadata" controls>
+    <source src="{{this.PostVideo}}" type="video/mp4">
+    <source src="{{this.PostVideo}}" type="video/ogg"> Your browser does not support HTML5 video.
+    </video>
+    <video style="width: 100%; height: 100%;" *ngIf="this.videoPoster != '' && this.external_url == 'No' " poster={{this.videoPoster}} preload="metadata" controls>
+    <source src="{{this.PostVideo}}" type="video/mp4">
+    <source src="{{this.PostVideo}}" type="video/ogg">
+    Your browser does not support HTML5 video.
+  </video>
+    <div class="adfsasdfdasfdasfasw" *ngIf="this.external_url == 'Yes'">
+        Opening URL...
+        <p (click)="open_out_url(this.ExternalURLFromAPI)">Open Link 2</p>
+    </div>
+
+
+    <script>
+        iframe.onload = function() {
+            // we can get the reference to the inner window
+            let iframeWindow = iframe.contentWindow; // OK
+            try {
+                // ...but not to the document inside it
+                let doc = iframe.contentDocument; // ERROR
+            } catch (e) {
+                alert(e); // Security Error (another origin)
+            }
+
+            // also we can't READ the URL of the page in iframe
+            try {
+                // Can't read URL from the Location object
+                let href = iframe.contentWindow.location.href; // ERROR
+            } catch (e) {
+                alert(e); // Security Error
+            }
+
+            // ...we can WRITE into location (and thus load something else into the iframe)!
+            iframe.contentWindow.location = '/'; // OK
+
+            iframe.onload = null; // clear the handler, not to run it after the location change
+        };
+    </script>
+
+</ion-content>

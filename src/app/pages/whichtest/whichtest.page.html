@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-toolbar>
+        
+        <ion-title>Aim of test?</ion-title>
+        <ion-buttons (click)="showHide()" class="searchIcon"></ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="loadData(true, $event)">
+        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing...">
+        </ion-refresher-content>
+    </ion-refresher>
+    <ul class="homeListItom">
+        <li class="albumList" *ngFor="let cat of ArrangeCategory;" id="{{cat.subcategory_id}}">
+            <div class="homeItems">
+
+                <ion-tab-button (click)="HomeSubFn(cat.subcategory_id)">
+                    <div class="HomeItemImgs" [style.background-image]="'url('+cat.category_image+')'" style="background-image: url(../../assets/images/HomeIcon1.png);"></div>
+                    <h2>{{cat.name}}</h2>
+                    <p>{{cat.description}}</p>
+
+                </ion-tab-button>
+            </div>
+        </li>
+    </ul>
+</ion-content>
