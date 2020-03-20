@@ -32,6 +32,7 @@ export class PostdetailPage implements OnInit {
   type_sent: any;
   public show: boolean = false;
   public showpdf: boolean = false;
+  postUrl: any;
 
   constructor(
     private apiservice: Apiservice,
@@ -80,6 +81,17 @@ export class PostdetailPage implements OnInit {
   return false;
   
   }
+
+  openURL(postUrl){
+    let postUrNew = postUrl;
+    let target = "_blank";
+    const browser = this.iab.create(postUrNew, target);
+    browser.on('loadstop').subscribe(event => {
+      // browser.insertCSS({ code: "body{color: red;" });
+    });
+  return false;
+  }
+ 
   postDetail(refresh = false, postId) {
     
     if (

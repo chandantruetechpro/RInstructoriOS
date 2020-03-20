@@ -1648,7 +1648,7 @@ OfflineManagerService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/krishna/Documents/chandan/ionic/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! D:\APPS\RinstructorDev\GitApp\GitChandan\RInstructoriOS\src\main.ts */"./src/main.ts");
 
 
 /***/ })

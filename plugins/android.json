@@ -44,6 +44,9 @@
     },
     "cordova-sqlite-storage": {
       "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-plugin-document-viewer": {
+      "PACKAGE_NAME": "com.rinstructor.truetechpro.com"
     }
   },
   "dependent_plugins": {
