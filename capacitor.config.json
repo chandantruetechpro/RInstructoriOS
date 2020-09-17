@@ -1,0 +1,24 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "Rinstructor",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {
+    "preferences": {
+      "ScrollEnabled": "false",
+      "android-minSdkVersion": "19",
+      "BackupWebStorage": "none",
+      "SplashMaintainAspectRatio": "true",
+      "SplashShowOnlyFirstTime": "false",
+      "SplashScreen": "screen",
+      "AutoHideSplashScreen": "false",
+      "SplashScreenDelay": "10000",
+      "FadeSplashScreenDuration": "1000",
+      "loadUrlTimeoutValue": "700000",
+      "ShowSplashScreen": "true",
+      "ShowSplashScreenSpinner": "true",
+      "FadeSplashScreen": "true"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+postdetail.page {
+    ion-header.header-md,
+    .header-ios ion-toolbar:last-child {
+        padding-right: 9%;
+    }
+    * {
+        border: 1px solid red;
+    }
+}

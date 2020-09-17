@@ -1,0 +1,33 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons class="customBack" (click)="goBack(postId,type_sent);">&nbsp;</ion-buttons>
+        <ion-title>
+            {{this.optionalTitle != '' ? this.optionalTitle : this.PostTitle}}
+
+        </ion-title>
+        <!-- <ion-buttons *ngIf="this.PostVideo != ''" [ngClass]="this.PostVideo != '' ? 'showPlayBtn' : ''" class="customPlay" (click)="playBtn(this.PostID);">&nbsp;</ion-buttons> -->
+        <!-- <ion-buttons [ngClass]="this.PostVideo != '' ? 'showPlayBtn' : ''" class="customPlay" (click)="playBtn(this.PostID);">&nbsp;</ion-buttons> -->
+        <ion-buttons class="infoIcon" *ngIf="showpdf" (click)="pdfClickOption(this.PostID)">&nbsp;</ion-buttons>
+        <ion-buttons class="customPlay showPlayBtn" *ngIf="show" (click)="playBtn(this.PostID);">&nbsp;</ion-buttons>
+        <!--ion-buttons (click)="showHide()" class="searchIcon"></ion-buttons-->
+
+        <!-- {{this.video_url}} -->
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="loadData(true, $event)">
+        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing...">
+        </ion-refresher-content>
+    </ion-refresher>
+
+    <div class="detailPage" [innerHTML]="this.postContent">
+        <!-- {{this.postContent}} -->
+    </div>
+    <!-- <div  *ngFor="let detail of postDetail">
+    {{detail.post_id}}
+    {{detail.post_title}}
+    {{detail.post_content}}
+    {{detail.detail_page_name}}
+  </div> -->
+
+</ion-content>

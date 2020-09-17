@@ -1,0 +1,55 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Video</ion-title>
+        <!-- <ion-buttons (click)="showHide()" class="searchIcon"></ion-buttons> -->
+
+    </ion-toolbar>
+    <div class="SearchSection" id="SearchSection" *ngIf="router.url === '/home' || router.url === '/video' || router.url === '/cheatsheets' || router.url === '/whichtest'">
+        <div class="SearchBox" *ngIf="searchShow" id="SearchBox">
+            <form id="submitForm" (ngSubmit)="submitdata(f.value)" #f="ngForm">
+                <input type="text" id="search_input" value="" name="searchvalue" [(ngModel)]="searchvalue" placeholder="Search..." />
+            </form>
+        </div>
+        <ion-buttons (click)="showHide()" id="SearchComponent" class="searchIcon SearchComponent"></ion-buttons>
+    </div>
+</ion-header>
+<!-- <app-searchheader></app-searchheader> -->
+
+<ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="loadData(true, $event)">
+        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing...">
+        </ion-refresher-content>
+    </ion-refresher>
+    <ul class="homeListItom">
+        <!-- <li class="albumList" *ngFor="let cat of categories; let i = 1; i++;" *ngIf=" cat.category_position == 'i'" id="{{cat.subcategory_id}}"> -->
+        <li class="albumList VideoPage" *ngFor="let cat of ArrangeCategory; let i = index; let key of keys" id="{{cat.subcategory_id}}">
+            <div class="homeItems" *ngIf="cat.subcategory_id != ''">
+                <!-- <ion-tab-button tab={{cat.link}}  (click)="HomeSubFn(15)"> -->
+                <!-- <ion-tab-button [routerLink]="'/subcategory/' + cat.subcategory_id" routerDirection="forward"> -->
+                <ion-tab-button tab={{cat.link}} (click)="HomeSubFn(cat.subcategory_id)">
+                    <div class="HomeItemImgs" [style.background-image]="'url('+cat.category_image+')'" style="background-image: url(../../assets/images/HomeIcon1.png);"></div>
+                    <h2>{{cat.name}}</h2>
+                    <p>{{cat.description}}</p>
+                </ion-tab-button> 
+            </div>
+        </li>
+    </ul>
+    <div class="CustomLoader" *ngIf="LoaderShow == true">
+        <div class="loaderInner">
+            <div class="lds-spinner">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+</ion-content>

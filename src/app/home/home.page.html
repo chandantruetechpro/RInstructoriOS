@@ -1,0 +1,139 @@
+<ion-header>
+
+    <ion-toolbar>
+        <ion-title>Home</ion-title>
+        <ion-tab-button (click)="openContact()" class="contactBtnHdr"></ion-tab-button>
+        <!-- <ion-buttons (click)="showHide()" class="searchIcon"></ion-buttons> -->
+
+    </ion-toolbar>
+    <div class="SearchSection" id="SearchSection" *ngIf="router.url === '/home' || router.url === '/video' || router.url === '/cheatsheets' || router.url === '/whichtest'">
+        <div class="SearchBox" *ngIf="searchShow" id="SearchBox">
+            <form id="submitForm" (ngSubmit)="submitdata(f.value)" #f="ngForm">
+                <input type="text" id="search_input" value="" name="searchvalue" [(ngModel)]="searchvalue" placeholder="Search..." />
+            </form>
+        </div>
+        <ion-buttons (click)="showHide()" id="SearchComponent" class="searchIcon SearchComponent"></ion-buttons>
+    </div>
+            
+<!-- (keyup.enter)="OnInput($event)"  ng-submit="submitdata($event)"  style="position: absolute; left: -9999px; width: 1px; height: 1px;" -->
+</ion-header>
+<!-- <app-searchheader></app-searchheader> -->
+
+<ion-content>
+
+    <div class="CustomLoader" *ngIf="LoaderShow == true">
+        <div class="loaderInner">
+            <div class="lds-spinner">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <div text-center *ngIf="count">Found {{count}} posts</div> -->
+
+    <!-- <ion-card *ngFor="let post of posts" >
+        <ion-card-header>
+            <ion-title innerHTML="post.title.rendered"></ion-title>
+            <ion-card-subtitle>{{ post.date_gmt | date }}</ion-card-subtitle>
+        </ion-card-header>
+
+        <ion-card-content>
+            <img [src]="post.media_url" />
+        </ion-card-content>
+
+    </ion-card> -->
+
+
+    <!-- <ion-refresher slot="fixed" (ionRefresh)="loadData(true, $event)">
+        <ion-refresher-content>
+        </ion-refresher-content>
+    </ion-refresher> -->
+
+    <ion-refresher slot="fixed" (ionRefresh)="loadData(true, $event)">
+        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing...">
+        </ion-refresher-content>
+    </ion-refresher>
+
+
+
+    <!-- <ion-list>
+    <ion-item *ngFor="let user of users" tappable (click)="updateUser(user.id)">
+      <ion-thumbnail slot="start">
+        <img [src]="user.avatar">
+      </ion-thumbnail>
+      <ion-label>
+        <h3>{{ user.name }} {{ user.id }}</h3>
+      </ion-label>
+    </ion-item>
+  </ion-list> -->
+
+
+    <!-- <ul>
+        <li *ngFor="let product of products">
+            <h2>{{product.name}} / ${{product.price}}</h2>
+            <p> {{product.description}} </p>
+        </li>
+        </ul> -->
+
+    <ul class="homeListItom">
+        <!-- <li class="albumList" *ngFor="let cat of categories; let i = 1; i++;" *ngIf=" cat.category_position == 'i'" id="{{cat.subcategory_id}}"> -->
+        <li class="albumList" *ngFor="let cat of ArrangeCategory; let i = index; let key of keys" id="{{cat.subcategory_id}}">
+
+            <!-- *ngIf="cat.category_position == i" -->
+
+            <div class="homeItems">
+                <!-- <ion-tab-button tab={{cat.link}}  (click)="HomeSubFn(15)"> -->
+                <!-- <ion-tab-button [routerLink]="'/subcategory/' + cat.subcategory_id" routerDirection="forward"> -->
+                <ion-tab-button tab={{cat.link}} (click)="HomeSubFn(cat.subcategory_id)" routerDirection="forward">
+                    <div class="HomeItemImgs" [style.background-image]="'url('+cat.category_image+')'" style="background-image: url(../../assets/images/HomeIcon1.png);"></div>
+                    <h2>{{cat.name}}</h2>
+                    <p>{{cat.description}}</p>
+
+                </ion-tab-button>
+            </div>
+        </li>
+    </ul>
+
+    <!-- 
+    <ul class="homeListItom">
+        <li class="albumList" *ngFor="let category of categoriesData" id="{{category.id}}">
+            <div class="homeItems">
+                <ion-tab-button tab={{category.category_image}}>
+                    <div class="HomeItemImgs" [style.background-image]="'url('+category.category_image+')'"
+                        style="background-image: url(../../assets/images/HomeIcon1.png);"></div>
+                    
+                    <h2>{{category.name}}</h2>
+                    <p>{{category.description}}</p>
+
+                </ion-tab-button>
+            </div>
+        </li>
+    </ul> -->
+
+
+    <!-- <ul class="homeListItom">
+        <li class="albumList" *ngFor="let items of HomeItems" id="{{items.id}}">
+            <div class="homeItems">
+                <ion-tab-button tab={{items.Link}}>
+                    <div class="HomeItemImgs" [style.background-image]="'url('+items.ImageName+')'"
+                        style="background-image: url(../../assets/images/HomeIcon1.png);"></div>
+                    <h2>{{items.HomeItemtitle}}</h2>
+                    <p>{{items.HomeItemText}}</p>
+                </ion-tab-button>
+            </div>
+        </li>
+    </ul> -->
+
+</ion-content>

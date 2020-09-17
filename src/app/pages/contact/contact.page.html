@@ -1,0 +1,35 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons class="customBack" (click)="goBack();">&nbsp;</ion-buttons>
+        <ion-title>Contact Us</ion-title>
+
+        <!-- <ion-buttons (click)="showHide()" class="searchIcon"></ion-buttons> -->
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ul class="homeListItom ListSyle Link">
+        <li class="albumList" *ngFor="let items of SubCategories" id="{{items.id}}">
+            <div class="homeItems">
+                <ion-tab-button tab={{items.Link}}>
+                    <div class="flexBox">
+                        <div class="leftContHor">
+                            <h2 *ngIf="items.HomeItemtitle != ''">{{items.HomeItemtitle}}</h2>
+                           <p *ngIf="items.type == 'Email'" (click)="openEmail(items.Link)">{{items.HomeItemText}}</p>
+                            <p *ngIf="items.type == 'Twitter'" (click)="openTwitter(items.Link)">{{items.HomeItemText}}</p>
+                            <p *ngIf="items.type == 'Url'" (click)="openURL(items.Link)">{{items.HomeItemText}}</p>
+                        </div>
+                        <div class="arrowRight">
+                            <ion-icon name="arrow-forward"></ion-icon>
+                        </div>
+                    </div>
+                </ion-tab-button>
+            </div>
+        </li>
+    </ul>
+    <!-- <ion-refresher slot="fixed" (ionRefresh)="loadData(true, $event)">
+        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing...">
+        </ion-refresher-content>
+    </ion-refresher> -->
+    
+</ion-content>

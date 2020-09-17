@@ -1,0 +1,207 @@
+            .tabMenuCont ion-label {
+                font-size: 1em;
+            }
+            
+            @media only screen and (max-width: 1023px) {
+                body {
+                    font-size: 16px;
+                }
+                .tabMenuCont {
+                    height: 4em;
+                }
+                .arrowRight {
+                    height: 4.3em;
+                }
+                .homeListItom li h2 {    font-size: 1.7em;}
+            }
+            
+            @media only screen and (max-width: 767px) {
+                body {
+                    font-size: 13px;
+                }
+                .tabMenuCont {
+                    height: 4em;
+                    padding: 0.2em 0;
+                }
+                .tabMenuCont ion-label {
+                    font-size: 1.5em;
+                }
+                .contactBtnHdr,
+                .searchIcon {
+                    width: 2.5em;
+                    height: 2.5em;
+                }
+                .homeListItom li {
+                    width: 50%;
+                }
+            }
+            
+            @media only screen and (max-width: 639px) {
+                body {
+                    font-size: 9px;
+                }
+                .tabMenuCont {
+                    height: 4em;
+                    padding: 0.2em 0;
+                }
+                .tabMenuCont ion-label {
+                    font-size: 1em;
+                }
+                ion-tab-bar,
+                ion-tab-button {
+                    font-size: inherit;
+                }
+                .tabMenuCont {
+                    height: 5.5em;
+                    padding: 0.2em 0;
+                }
+                .homeListItom li h2 {
+                    font-size: 1.8em;
+                }
+                .arrowRight {
+                    height: 4em;
+                }
+                .smallTable {
+                    font-size: 12px;
+                }
+                .CustomFooter ion-title {
+                    font-size: 1em;
+                }
+                .CustomFooter .MenuIcon {
+                    font-size: 2em;
+                }
+            }
+            
+            @media only screen and (max-width: 379px) {
+                .smallTable {
+                    font-size: 11px;
+                }
+            }
+            
+            @media only screen and (min-width: 639px) {
+                ion-header ion-title {
+                    position: relative;
+                    height: 60px;
+                }
+                .CustomFooter {
+                    height: 50px;
+                    font-size: 1em;
+                }
+                .footInner ion-toolbar ion-title {
+                    --min-height: 50px;
+                    height: 50px;
+                }
+                .footInner ion-toolbar {
+                    display: flex;
+                    height: 50px;
+                }
+            }
+            
+            @media only screen and (min-width: 767px) {
+                .searchIcon {
+                    width: 32px;
+                    height: 32px;
+                    margin-top: -16px;
+                }
+                .contactBtnHdr {
+                    width: 32px;
+                    height: 32px;
+                    top: 50%;
+                    margin-top: -16px;
+                }
+                ion-header ion-title {
+                    font-size: 1.5em;
+                }
+                ion-header ion-title {
+                    font-size: 2em;
+                }
+                body {
+                    font-size: 12px;
+                }
+                .footInner {
+                    height: 100%;
+                }
+                .homeListItom li {
+                    width: 25%;
+                }
+                .SearchSection {
+                    font-size: 9px;
+                }
+                .CustomFooter {
+                    height: 80px;
+                    font-size: 1.7em;
+                }
+                .footInner ion-toolbar ion-title {
+                    --min-height: 80px;
+                }
+                .footInner ion-toolbar {
+                    display: flex;
+                    height: 79px;
+                }
+                ion-header ion-title {
+                    position: relative;
+                    height: 80px;
+                    z-index: 99999;
+                }
+            }
+            @media only screen and (min-width: 767px) {
+                .homeListItom li p {
+                    font-size: 1.4em;
+                }
+            }
+
+            @media only screen and (min-width: 1025px) {
+                /* .homeListItom li h2 {
+                  
+                    max-width: 72%;
+                } */
+                .homeListItom li h2 {
+                    font-size: 2em;
+                    max-width: 72%;
+                }
+                .homeListItom li p {
+                    font-size: 1.5em;
+                }
+            }
+           
+            
+
+
+            @media only screen and (max-width: 639px) {
+                ion-app.ios   .footInner ion-toolbar ion-title {
+                    --min-height: 63px;
+                }
+            
+                ion-app.ios .footInner ion-toolbar {
+                    display: flex;
+                    height: 63px;
+                    align-self: flex-start;
+                    padding-top: 3px; 
+                    padding-bottom: 22px;
+                    
+                }
+                ion-app.ios .footInner {align-self: flex-start;
+                    padding-bottom: 0;}
+                
+            }
+
+            @media only screen and (min-width: 767px) {
+                ion-app.ios   .footInner ion-toolbar ion-title {
+                    --min-height: 140px;
+                    
+                }
+            
+                ion-app.ios .footInner ion-toolbar {
+                    display: flex;
+                    height: 100px;
+                    align-self: flex-start;
+                    padding-top: 3px;
+                    padding-bottom: 22px;
+                    
+                }
+                ion-app.ios .footInner {align-self: flex-start;
+                    padding-bottom: 0;}
+                    .CustomFooter {height: 95px;}
+                    
+                
+            }
